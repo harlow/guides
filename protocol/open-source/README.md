@@ -11,7 +11,7 @@ Given you have this in your `~/.gitconfig`:
     [alias]
       co-pr = !sh -c 'git fetch origin pull/$1/head:pr/$1 && git checkout pr/$1' -
 
-Get the code:
+Check out the code:
 
     git co-pr 123
 
