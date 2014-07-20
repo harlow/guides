@@ -8,13 +8,12 @@ Accepting a GitHub Pull Request
 
 Given you have this in your `~/.gitconfig`:
 
-    [remote "origin"]
-      fetch = +refs/pull/*/head:refs/remotes/origin/pr/*
+    [alias]
+      co-pr = !sh -c 'git fetch origin pull/$1/head:pr/$1 && git checkout pr/$1' -
 
 Get the code:
 
-    git fetch origin
-    git checkout pr/123
+    git co-pr 123
 
 Rebase interactively, squash, and potentially improve commit messages:
 
@@ -24,7 +23,7 @@ Look at changes:
 
     git diff origin/master
 
-Bundle, validate tests are passing:
+Run the code and tests. For example, on a Ruby project:
 
     bundle
     rake
